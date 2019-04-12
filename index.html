@@ -10,6 +10,92 @@
     <script src="javascripts/jquery.js"></script>
 </head>
 <body>
-	Hello world!!!11
+	<div class="container">
+		## docker离线安装(centos7--docker-18.06.1-ce)
+		> harbor 192.168.255.166  docker-client 192.168.255.152 
+
+		--> 1. 创建工作目录 mkdir -p /opt/softs
+		--> 2. 下载docker二进制文件到工作目录 docker-18.06.1-ce.tgz ,并且解压:tar -xzvf docker-18.06.1-ce.tgz 
+		--> 3. 拷贝docker执行文件到 /usr/local/bin目录下 : cp /opt/softs/docker/docker* /usr/local/bin/
+		--> 4. 创建docker启动文件放入/usr/lib/systemd/system/目录: docker.service
+		```
+		[Unit]
+		Description=Docker Application Container Engine
+		Documentation=http://docs.docker.com
+		After=network.target docker.socket
+		[Service]
+		Type=notify
+		Environment="PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin"
+		EnvironmentFile=-/run/flannel/docker
+		WorkingDirectory=/usr/local/bin
+		ExecStart=/usr/local/bin/dockerd \
+		              --graph=/data/docker
+		              --selinux-enabled=false \
+		              --log-opt max-size=1g \
+		              --log-level=error \
+		              $DOCKER_NETWORK_OPTIONS
+		ExecReload=/bin/kill -s HUP $MAINPID
+		LimitNOFILE=infinity
+		LimitNPROC=infinity
+		LimitCORE=infinity
+		TimeoutStartSec=0
+		Delegate=yes
+		KillMode=process
+		Restart=on-failure
+		[Install]
+		WantedBy=multi-user.target
+		``` 
+		--> 5. 启动docker,并设置docker开机启动: 
+		```
+		systemctl daemon-reload
+
+		systemctl start docker
+
+		systemctl enable docker
+		```
+
+		## harbor离线安装(harbor-offline-installer-v1.7.5.tgz)
+		--> 1. 下载harbor二进制文件到工作目录(/opt/softs) harbor-offline-installer-v1.7.5.tgz ,并且解压:tar -xzvf harbor-offline-installer-v1.7.5.tgz
+		--> 2. 创建存入私钥的目录：mkdir -p /opt/cert  用于docker使用https连接harbor
+		--> 3. 进入私钥的目录: cd /opt/cert  执行下列命令生成证书文件
+		```
+		1. openssl req  -newkey rsa:4096 -nodes -sha256 -keyout ca.key -x509 -days 365 -out ca.crt -subj "/C=CN/L=shanghai/O=wangxy/CN=harbor-registry"
+		2. openssl req -newkey rsa:4096 -nodes -sha256 -keyout harbor.docker.com.key -out server.csr -subj "/C=CN/L=shanghai/O=wangxy/CN=harbor.docker.com"
+		3. openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out harbor.docker.com.crt
+
+		4. ls -l /opt/cert 会生成下面几个文件:
+		   ca.crt
+		   ca.key
+		   ca.srl
+		   harbor.docker.com.crt
+		   harbor.docker.com.key
+		   server.csr
+		```
+		--> 4. 配置域名映射: 在 /etc/hosts 中加入 <你的ip> harbor.docker.com
+		--> 5. 进入harbor二进制目录: cd /opt/soft/harbor 修改配置文件:harbor.cfg 
+		```
+		hostname = harbor.docker.com                   
+		ssl_cert = /opt/cert/harbor.docker.com.crt
+		ssl_cert_key = /opt/cert/harbor.docker.com.key
+		secretkey_path = /opt
+
+
+		db_password = root123            // 数据库root的密码
+		harbor_admin_password = abc123   // harbor 后台页面登录的用户密码,用户名为admin（后台管理员）
+		```
+		--> 6. 安装前准备: sh ./prepare
+		--> 7. 安装harbor: sh ./install.sh
+
+		## docker 客户端连接harbor
+		--> 1. 创建存放证书文件的目录(docker): mkdir -p /etc/docker/certs.d/harbor.docker.com/
+		--> 2. 连接之前需要从harbor服务器上拷贝证书文件到docker客户端机器上:
+		```
+		scp -r /opt/cert/ca.crt root@192.168.255.152:/etc/docker/certs.d/harbor.docker.com/
+		```
+		--> 3. 现在可以在客户端机器上的docker可以登录harbor私有仓库了:
+		```
+		docker login harbor.docker.com
+		```
+	</div>
 </body>
 </html>
