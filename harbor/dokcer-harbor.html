@@ -289,7 +289,16 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="docker&#x8FDE;&#x63A5;harbor">docker&#x8FDE;&#x63A5;harbor</h2>
-
+<ol>
+<li>&#x521B;&#x5EFA;&#x5B58;&#x653E;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;(docker): <code>mkdir -p /etc/docker/certs.d/harbor.docker.com/</code></li>
+<li>&#x4ECE;harbor&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x62F7;&#x8D1D;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#x5230;docker&#x5BA2;&#x6237;&#x7AEF;&#x673A;&#x5668;&#x4E0A;</li>
+</ol>
+<pre><code>scp -r /opt/cert/ca.crt root@192.168.255.152:/etc/docker/certs.d/harbor.docker.com/
+</code></pre><ol>
+<li>&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x673A;&#x5668;&#x4E0A;&#x7684;docker&#x53EF;&#x4EE5;&#x767B;&#x5F55;harbor&#x79C1;&#x6709;&#x4ED3;&#x5E93;&#x4E86;</li>
+</ol>
+<pre><code>docker login harbor.docker.com
+</code></pre>
                                 
                                 </section>
                             
@@ -328,7 +337,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.2.2 docker连接harbor","level":"3.2.3","depth":2,"previous":{"title":"2.2.2 安装","level":"3.2.2","depth":2,"path":"harbor/install-do.md","ref":"harbor/install-do.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"harbor/dokcer-harbor.md","mtime":"2019-04-12T10:20:07.398Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-12T10:23:55.018Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.2.2 docker连接harbor","level":"3.2.3","depth":2,"previous":{"title":"2.2.2 安装","level":"3.2.2","depth":2,"path":"harbor/install-do.md","ref":"harbor/install-do.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"harbor/dokcer-harbor.md","mtime":"2019-04-12T10:33:55.777Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-12T10:34:03.879Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
