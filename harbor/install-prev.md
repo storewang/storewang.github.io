@@ -20,3 +20,5 @@ db_password = root123
 harbor_admin_password = abc123
 ```
 6. 执行: ```sh ./prepare```
+
+![install-harbor](https://storewang.github.io/images/install-harbor.png "harbor安装前准备")
