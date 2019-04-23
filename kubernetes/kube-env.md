@@ -31,8 +31,4 @@ kube-node2|centOS7|node2.docker.com|192.168.255.166|node2
 #### ssl工具安装
 `把kubernetes_bin/cfssl,kubernetes_bin/cfssljson,kubernetes_bin/cfssl-certinfo上的可执行文件拷贝到/usr/local/bin目录下,并且添加可执行权限,chmod +x cfssl cfssljson cfssl-certinfo`
 
-<center>
-
 ![soft-all](https://storewang.github.io/images/kube-soft.png "用到的软件")
-
-</center>
