@@ -623,16 +623,12 @@
                                 
                                 <h2 id="&#x5236;&#x4F5C;kubernetes-ca&#x8BC1;&#x4E66;">&#x5236;&#x4F5C;kubernetes ca&#x8BC1;&#x4E66;</h2>
 <ol>
-<li>&#x521B;&#x5EFA;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;</li>
-</ol>
-<pre><code class="lang-shell">mkdir /opt/k8s/etcd/{bin,cfg,ssl} -p
+<li>&#x521B;&#x5EFA;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;<pre><code class="lang-shell">mkdir /opt/k8s/etcd/{bin,cfg,ssl} -p
 mkdir /opt/k8s/kubernetes/{bin,cfg,ssl} -p
 </code></pre>
-<ol>
-<li><p>etcd ca&#x914D;&#x7F6E;</p>
-<ul>
-<li><p>2.1 /opt/k8s/kubernetes/ssl/ca-config.json</p>
-<pre><code class="lang-json">{
+</li>
+<li>kubernetes ca&#x914D;&#x7F6E;<ul>
+<li>2.1 /opt/k8s/kubernetes/ssl/ca-config.json<pre><code class="lang-json">{
    <span class="hljs-string">&quot;signing&quot;</span>: {
        <span class="hljs-string">&quot;default&quot;</span>: {
        <span class="hljs-string">&quot;expiry&quot;</span>: <span class="hljs-string">&quot;87600h&quot;</span>
@@ -652,89 +648,85 @@ mkdir /opt/k8s/kubernetes/{bin,cfg,ssl} -p
 }
 </code></pre>
 </li>
-</ul>
-</li>
 <li>2.2 /opt/k8s/kubernetes/ssl/ca-csr.json<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;CN&quot;</span>: <span class="hljs-string">&quot;kubernetes&quot;</span>,
-  <span class="hljs-string">&quot;key&quot;</span>: {
-      <span class="hljs-string">&quot;algo&quot;</span>: <span class="hljs-string">&quot;rsa&quot;</span>,
-      <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">2048</span>
-  },
-  <span class="hljs-string">&quot;names&quot;</span>: [
-      {
-          <span class="hljs-string">&quot;C&quot;</span>: <span class="hljs-string">&quot;CN&quot;</span>,
-          <span class="hljs-string">&quot;L&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
-          <span class="hljs-string">&quot;ST&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
-          <span class="hljs-string">&quot;O&quot;</span>: <span class="hljs-string">&quot;k8s&quot;</span>,
-          <span class="hljs-string">&quot;OU&quot;</span>: <span class="hljs-string">&quot;System&quot;</span>
-      }
-  ]
+   <span class="hljs-string">&quot;CN&quot;</span>: <span class="hljs-string">&quot;kubernetes&quot;</span>,
+   <span class="hljs-string">&quot;key&quot;</span>: {
+       <span class="hljs-string">&quot;algo&quot;</span>: <span class="hljs-string">&quot;rsa&quot;</span>,
+       <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">2048</span>
+   },
+   <span class="hljs-string">&quot;names&quot;</span>: [
+       {
+           <span class="hljs-string">&quot;C&quot;</span>: <span class="hljs-string">&quot;CN&quot;</span>,
+           <span class="hljs-string">&quot;L&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
+           <span class="hljs-string">&quot;ST&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
+           <span class="hljs-string">&quot;O&quot;</span>: <span class="hljs-string">&quot;k8s&quot;</span>,
+           <span class="hljs-string">&quot;OU&quot;</span>: <span class="hljs-string">&quot;System&quot;</span>
+       }
+   ]
 }
 </code></pre>
 </li>
 <li>2.3 &#x751F;&#x6210;kubernetes ca&#x8BC1;&#x4E66;&#x548C;&#x79C1;&#x94A5; &#x521D;&#x59CB;&#x5316;ca<pre><code class="lang-shell">cfssl gencert -initca ca-csr.json | cfssljson -bare ca -
 </code></pre>
 </li>
+</ul>
+</li>
 <li>&#x751F;&#x6210;apiserver server&#x8BC1;&#x4E66;<ul>
 <li>3.1 apiserver server&#x8BC1;&#x4E66;&#x914D;&#x7F6E; /opt/k8s/kubernetes/ssl/server-csr.json<pre><code class="lang-json">{
-<span class="hljs-string">&quot;CN&quot;</span>: <span class="hljs-string">&quot;kubernetes&quot;</span>,
-<span class="hljs-string">&quot;hosts&quot;</span>: [
- <span class="hljs-string">&quot;10.254.0.1&quot;</span>,
- <span class="hljs-string">&quot;127.0.0.1&quot;</span>,
- <span class="hljs-string">&quot;192.168.255.173&quot;</span>,
- <span class="hljs-string">&quot;192.168.255.152&quot;</span>,
- <span class="hljs-string">&quot;192.168.255.166&quot;</span>,
- <span class="hljs-string">&quot;kubernetes&quot;</span>,
- <span class="hljs-string">&quot;kubernetes.default&quot;</span>,
- <span class="hljs-string">&quot;kubernetes.default.svc&quot;</span>,
- <span class="hljs-string">&quot;kubernetes.default.svc.cluster&quot;</span>,
- <span class="hljs-string">&quot;kubernetes.default.svc.cluster.local&quot;</span>
-],
-<span class="hljs-string">&quot;key&quot;</span>: {
-   <span class="hljs-string">&quot;algo&quot;</span>: <span class="hljs-string">&quot;rsa&quot;</span>,
-   <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">2048</span>
-},
-<span class="hljs-string">&quot;names&quot;</span>: [
-   {
-       <span class="hljs-string">&quot;C&quot;</span>: <span class="hljs-string">&quot;CN&quot;</span>,
-       <span class="hljs-string">&quot;L&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
-       <span class="hljs-string">&quot;ST&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
-       <span class="hljs-string">&quot;O&quot;</span>: <span class="hljs-string">&quot;k8s&quot;</span>,
-       <span class="hljs-string">&quot;OU&quot;</span>: <span class="hljs-string">&quot;System&quot;</span>
-   }
-]
+   <span class="hljs-string">&quot;CN&quot;</span>: <span class="hljs-string">&quot;kubernetes&quot;</span>,
+   <span class="hljs-string">&quot;hosts&quot;</span>: [
+   <span class="hljs-string">&quot;10.254.0.1&quot;</span>,
+   <span class="hljs-string">&quot;127.0.0.1&quot;</span>,
+   <span class="hljs-string">&quot;192.168.255.173&quot;</span>,
+   <span class="hljs-string">&quot;192.168.255.152&quot;</span>,
+   <span class="hljs-string">&quot;192.168.255.166&quot;</span>,
+   <span class="hljs-string">&quot;kubernetes&quot;</span>,
+   <span class="hljs-string">&quot;kubernetes.default&quot;</span>,
+   <span class="hljs-string">&quot;kubernetes.default.svc&quot;</span>,
+   <span class="hljs-string">&quot;kubernetes.default.svc.cluster&quot;</span>,
+   <span class="hljs-string">&quot;kubernetes.default.svc.cluster.local&quot;</span>
+   ],
+   <span class="hljs-string">&quot;key&quot;</span>: {
+       <span class="hljs-string">&quot;algo&quot;</span>: <span class="hljs-string">&quot;rsa&quot;</span>,
+       <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">2048</span>
+   },
+   <span class="hljs-string">&quot;names&quot;</span>: [
+       {
+           <span class="hljs-string">&quot;C&quot;</span>: <span class="hljs-string">&quot;CN&quot;</span>,
+           <span class="hljs-string">&quot;L&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
+           <span class="hljs-string">&quot;ST&quot;</span>: <span class="hljs-string">&quot;Beijing&quot;</span>,
+           <span class="hljs-string">&quot;O&quot;</span>: <span class="hljs-string">&quot;k8s&quot;</span>,
+           <span class="hljs-string">&quot;OU&quot;</span>: <span class="hljs-string">&quot;System&quot;</span>
+       }
+   ]
 }
+</code></pre>
+</li>
+<li>3.2 &#x751F;&#x6210;server&#x8BC1;&#x4E66;&#xFF1A;apiserver<pre><code class="lang-shell">cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes server-csr.json | cfssljson -bare server
 </code></pre>
 </li>
 </ul>
 </li>
-<li><p>3.2 &#x751F;&#x6210;server&#x8BC1;&#x4E66;&#xFF1A;apiserver</p>
-<pre><code class="lang-shell">cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes server-csr.json | cfssljson -bare server
-</code></pre>
-</li>
-<li><p>&#x5236;&#x4F5C;kube-proxy&#x8BC1;&#x4E66;</p>
-<ul>
-<li><p>4.1 kube-proxy&#x8BC1;&#x4E66;&#x914D;&#x7F6E; /opt/k8s/kubernetes/ssl/kube-proxy-csr.json</p>
-<pre><code>{
-&quot;CN&quot;: &quot;system:kube-proxy&quot;,
-&quot;hosts&quot;: [],
-&quot;key&quot;: {
-   &quot;algo&quot;: &quot;rsa&quot;,
-   &quot;size&quot;: 2048
-},
-&quot;names&quot;: [
-   {
-   &quot;C&quot;: &quot;CN&quot;,
-   &quot;L&quot;: &quot;Beijing&quot;,
-   &quot;ST&quot;: &quot;Beijing&quot;,
-   &quot;O&quot;: &quot;k8s&quot;,
-   &quot;OU&quot;: &quot;System&quot;
-   }
-]
+<li>&#x5236;&#x4F5C;kube-proxy&#x8BC1;&#x4E66;<ul>
+<li>4.1 kube-proxy&#x8BC1;&#x4E66;&#x914D;&#x7F6E; /opt/k8s/kubernetes/ssl/kube-proxy-csr.json<pre><code>{
+   &quot;CN&quot;: &quot;system:kube-proxy&quot;,
+   &quot;hosts&quot;: [],
+   &quot;key&quot;: {
+       &quot;algo&quot;: &quot;rsa&quot;,
+       &quot;size&quot;: 2048
+   },
+   &quot;names&quot;: [
+       {
+       &quot;C&quot;: &quot;CN&quot;,
+       &quot;L&quot;: &quot;Beijing&quot;,
+       &quot;ST&quot;: &quot;Beijing&quot;,
+       &quot;O&quot;: &quot;k8s&quot;,
+       &quot;OU&quot;: &quot;System&quot;
+       }
+   ]
 }
 </code></pre></li>
-<li><p>4.2 &#x751F;&#x6210;server&#x8BC1;&#x4E66;&#xFF1A;kube-proxy</p>
-<pre><code class="lang-shell">cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr.json | cfssljson -bare kube-proxy
+<li>4.2 &#x751F;&#x6210;server&#x8BC1;&#x4E66;&#xFF1A;kube-proxy<pre><code class="lang-shell">cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr.json | cfssljson -bare kube-proxy
 </code></pre>
 </li>
 </ul>
@@ -783,7 +775,7 @@ mkdir /opt/k8s/kubernetes/{bin,cfg,ssl} -p
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2.1 生成证书文件","level":"5.2.1","depth":2,"next":{"title":"4.2.2 二进制安装","level":"5.2.2","depth":2,"path":"kubernetes/kube-master-install.md","ref":"kubernetes/kube-master-install.md","articles":[]},"previous":{"title":"4.2 master离线安装","level":"5.2","depth":1,"path":"kubernetes/kube-master.md","ref":"kubernetes/kube-master.md","articles":[{"title":"4.2.1 生成证书文件","level":"5.2.1","depth":2,"path":"kubernetes/kube-master-cert.md","ref":"kubernetes/kube-master-cert.md","articles":[]},{"title":"4.2.2 二进制安装","level":"5.2.2","depth":2,"path":"kubernetes/kube-master-install.md","ref":"kubernetes/kube-master-install.md","articles":[]},{"title":"4.2.3 apiserver服务配置","level":"5.2.3","depth":2,"path":"kubernetes/kube-master-service.md","ref":"kubernetes/kube-master-service.md","articles":[]},{"title":"4.2.4 apiserver服务参数配置","level":"5.2.4","depth":2,"path":"kubernetes/kube-master-conf.md","ref":"kubernetes/kube-master-conf.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kubernetes/kube-master-cert.md","mtime":"2019-04-23T07:43:20.895Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-23T09:58:37.473Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2.1 生成证书文件","level":"5.2.1","depth":2,"next":{"title":"4.2.2 二进制安装","level":"5.2.2","depth":2,"path":"kubernetes/kube-master-install.md","ref":"kubernetes/kube-master-install.md","articles":[]},"previous":{"title":"4.2 master离线安装","level":"5.2","depth":1,"path":"kubernetes/kube-master.md","ref":"kubernetes/kube-master.md","articles":[{"title":"4.2.1 生成证书文件","level":"5.2.1","depth":2,"path":"kubernetes/kube-master-cert.md","ref":"kubernetes/kube-master-cert.md","articles":[]},{"title":"4.2.2 二进制安装","level":"5.2.2","depth":2,"path":"kubernetes/kube-master-install.md","ref":"kubernetes/kube-master-install.md","articles":[]},{"title":"4.2.3 apiserver服务配置","level":"5.2.3","depth":2,"path":"kubernetes/kube-master-service.md","ref":"kubernetes/kube-master-service.md","articles":[]},{"title":"4.2.4 apiserver服务参数配置","level":"5.2.4","depth":2,"path":"kubernetes/kube-master-conf.md","ref":"kubernetes/kube-master-conf.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kubernetes/kube-master-cert.md","mtime":"2019-04-23T10:20:53.914Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-23T10:25:42.750Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
