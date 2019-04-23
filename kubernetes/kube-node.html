@@ -1,0 +1,938 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5.2 node离线安装 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="kube-node-cert.html" />
+    
+    
+    <link rel="prev" href="kube-env.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第一章 docker离线安装</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../docker/install.html">
+            
+                <a href="../docker/install.html">
+            
+                    
+                    1.1 二进制安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../docker/start.html">
+            
+                <a href="../docker/start.html">
+            
+                    
+                    1.2 docker启动
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../docker/docker-conf.html">
+            
+                <a href="../docker/docker-conf.html">
+            
+                    
+                    1.2.1 docker.service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../docker/docker-start.html">
+            
+                <a href="../docker/docker-start.html">
+            
+                    
+                    1.2.2 开机启动设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二章 harbor离线安装</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../harbor/cert-make.html">
+            
+                <a href="../harbor/cert-make.html">
+            
+                    
+                    2.1 生成证书文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../harbor/install.html">
+            
+                <a href="../harbor/install.html">
+            
+                    
+                    2.2 harbor离线安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../harbor/install-prev.html">
+            
+                <a href="../harbor/install-prev.html">
+            
+                    
+                    2.2.1 安装前准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../harbor/install-do.html">
+            
+                <a href="../harbor/install-do.html">
+            
+                    
+                    2.2.2 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../harbor/dokcer-harbor.html">
+            
+                <a href="../harbor/dokcer-harbor.html">
+            
+                    
+                    2.2.2 docker连接harbor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第三章 etcd离线安装</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="kube-env.html">
+            
+                <a href="kube-env.html">
+            
+                    
+                    3.1 环境说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="kube-etcd.html">
+            
+                <a href="kube-etcd.html">
+            
+                    
+                    3.2 etcd离线安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="kube-etcd-cert.html">
+            
+                <a href="kube-etcd-cert.html">
+            
+                    
+                    3.2.1 生成证书文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="kube-etcd-install.html">
+            
+                <a href="kube-etcd-install.html">
+            
+                    
+                    3.2.2 二进制安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="kube-etcd-service.html">
+            
+                <a href="kube-etcd-service.html">
+            
+                    
+                    3.2.3 etcd服务配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="kube-etcd-conf.html">
+            
+                <a href="kube-etcd-conf.html">
+            
+                    
+                    3.2.4 etcd服务参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第四章 kube-master离线安装</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="kube-env.html">
+            
+                <a href="kube-env.html">
+            
+                    
+                    4.1 环境说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="kube-master.html">
+            
+                <a href="kube-master.html">
+            
+                    
+                    4.2 master离线安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="kube-master-cert.html">
+            
+                <a href="kube-master-cert.html">
+            
+                    
+                    4.2.1 生成证书文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="kube-master-install.html">
+            
+                <a href="kube-master-install.html">
+            
+                    
+                    4.2.2 二进制安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="kube-master-service.html">
+            
+                <a href="kube-master-service.html">
+            
+                    
+                    4.2.3 apiserver服务配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="kube-master-conf.html">
+            
+                <a href="kube-master-conf.html">
+            
+                    
+                    4.2.4 apiserver服务参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第五章 kube-node离线安装</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="kube-env.html">
+            
+                <a href="kube-env.html">
+            
+                    
+                    5.1 环境说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.2" data-path="kube-node.html">
+            
+                <a href="kube-node.html">
+            
+                    
+                    5.2 node离线安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.2.1" data-path="kube-node-cert.html">
+            
+                <a href="kube-node-cert.html">
+            
+                    
+                    5.2.1 生成证书文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.2" data-path="kube-node-install.html">
+            
+                <a href="kube-node-install.html">
+            
+                    
+                    5.2.2 二进制安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.3" data-path="kube-node-service.html">
+            
+                <a href="kube-node-service.html">
+            
+                    
+                    5.2.3 kubelet服务配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.4" data-path="kube-node-conf.html">
+            
+                <a href="kube-node-conf.html">
+            
+                    
+                    5.2.4 kubelet服务参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="kube-flannel.html">
+            
+                <a href="kube-flannel.html">
+            
+                    
+                    5.3 flannel离线安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.3.1" data-path="kube-flannel-install.html">
+            
+                <a href="kube-flannel-install.html">
+            
+                    
+                    5.3.1 二进制安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.2" data-path="kube-flannel-service.html">
+            
+                <a href="kube-flannel-service.html">
+            
+                    
+                    5.3.2 flannel服务配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.3" data-path="kube-flannel-conf.html">
+            
+                <a href="kube-flannel-conf.html">
+            
+                    
+                    5.3.3 flannel服务参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >5.2 node离线安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4E00;&#x952E;&#x5B89;&#x88C5;&#x811A;&#x672C;-installetcdsh">&#x4E00;&#x952E;&#x5B89;&#x88C5;&#x811A;&#x672C; install_etcd.sh</h2>
+<pre><code class="lang-shell">#!/usr/bin/bash
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x8BBE;&#x7F6E;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x53D8;&#x91CF;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+export workdir=&quot;/opt/k8s/work&quot;
+
+export node_h=&quot;192.168.255.152&quot; // &#x5BF9;&#x5E94;&#x4E0D;&#x540C;&#x7ED3;&#x70B9;&#x7684;ip
+
+export node1_h=&quot;192.168.255.173&quot;
+export node2_h=&quot;192.168.255.152&quot;
+export node3_h=&quot;192.168.255.166&quot;
+
+## &#x521B;&#x5EFA;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+mkdir /opt/k8s/etcd/{bin,cfg,ssl} -p
+mkdir /opt/k8s/kubernetes/{bin,cfg,ssl} -p
+
+## &#x751F;&#x6210;kubernets&#x8BC1;&#x4E66;&#x4E0E;&#x79C1;&#x94A5;
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x5236;&#x4F5C;kubernetes ca&#x8BC1;&#x4E66;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+cd /opt/k8s/kubernetes/ssl
+
+cat &lt;&lt; EOF | tee ca-config.json
+{
+  &quot;signing&quot;: {
+    &quot;default&quot;: {
+      &quot;expiry&quot;: &quot;87600h&quot;
+    },
+    &quot;profiles&quot;: {
+      &quot;kubernetes&quot;: {
+         &quot;expiry&quot;: &quot;87600h&quot;,
+         &quot;usages&quot;: [
+            &quot;signing&quot;,
+            &quot;key encipherment&quot;,
+            &quot;server auth&quot;,
+            &quot;client auth&quot;
+        ]
+      }
+    }
+  }
+}
+EOF
+
+cat &lt;&lt; EOF | tee ca-csr.json
+{
+    &quot;CN&quot;: &quot;kubernetes&quot;,
+    &quot;key&quot;: {
+        &quot;algo&quot;: &quot;rsa&quot;,
+        &quot;size&quot;: 2048
+    },
+    &quot;names&quot;: [
+        {
+            &quot;C&quot;: &quot;CN&quot;,
+            &quot;L&quot;: &quot;Beijing&quot;,
+            &quot;ST&quot;: &quot;Beijing&quot;,
+            &quot;O&quot;: &quot;k8s&quot;,
+            &quot;OU&quot;: &quot;System&quot;
+        }
+    ]
+}
+EOF
+
+cfssl gencert -initca ca-csr.json | cfssljson -bare ca -
+
+ls
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x5236;&#x4F5C;apiserver&#x8BC1;&#x4E66;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+cat &lt;&lt; EOF | tee server-csr.json
+{
+    &quot;CN&quot;: &quot;kubernetes&quot;,
+    &quot;hosts&quot;: [
+      &quot;10.254.0.1&quot;,
+      &quot;127.0.0.1&quot;,
+      &quot;192.168.255.173&quot;,
+          &quot;192.168.255.152&quot;,
+          &quot;192.168.255.166&quot;,
+      &quot;kubernetes&quot;,
+      &quot;kubernetes.default&quot;,
+      &quot;kubernetes.default.svc&quot;,
+      &quot;kubernetes.default.svc.cluster&quot;,
+      &quot;kubernetes.default.svc.cluster.local&quot;
+    ],
+    &quot;key&quot;: {
+        &quot;algo&quot;: &quot;rsa&quot;,
+        &quot;size&quot;: 2048
+    },
+    &quot;names&quot;: [
+        {
+            &quot;C&quot;: &quot;CN&quot;,
+            &quot;L&quot;: &quot;Beijing&quot;,
+            &quot;ST&quot;: &quot;Beijing&quot;,
+            &quot;O&quot;: &quot;k8s&quot;,
+            &quot;OU&quot;: &quot;System&quot;
+        }
+    ]
+}
+EOF
+
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes server-csr.json | cfssljson -bare server
+
+ls
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x5236;&#x4F5C;kube-proxy&#x8BC1;&#x4E66;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+cat &lt;&lt; EOF | tee kube-proxy-csr.json
+{
+  &quot;CN&quot;: &quot;system:kube-proxy&quot;,
+  &quot;hosts&quot;: [],
+  &quot;key&quot;: {
+    &quot;algo&quot;: &quot;rsa&quot;,
+    &quot;size&quot;: 2048
+  },
+  &quot;names&quot;: [
+    {
+      &quot;C&quot;: &quot;CN&quot;,
+      &quot;L&quot;: &quot;Beijing&quot;,
+      &quot;ST&quot;: &quot;Beijing&quot;,
+      &quot;O&quot;: &quot;k8s&quot;,
+      &quot;OU&quot;: &quot;System&quot;
+    }
+  ]
+}
+EOF
+
+cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr.json | cfssljson -bare kube-proxy
+
+ls
+
+## &#x90E8;&#x7F72;kubernetes server
+cd ${workdir}/
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x89E3;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+## tar -zxvf kubernetes-server-linux-amd64.tar.gz
+cd kubernetes_bin
+cp kubectl kubelet kube-proxy /opt/k8s/kubernetes/bin/
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x90E8;&#x7F72;kube-node&#x7EC4;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+cd ${workdir}/
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;kubelet&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+
+cat &lt;&lt; EOF | tee kubelet
+KUBELET_OPTS=&quot;--logtostderr=true \
+--v=4 \
+--hostname-override=${node_h} \
+--kubeconfig=/opt/k8s/kubernetes/cfg/kubelet.kubeconfig \
+--bootstrap-kubeconfig=/opt/k8s/kubernetes/cfg/bootstrap.kubeconfig \
+--config=/opt/k8s/kubernetes/cfg/kubelet.config \
+--cert-dir=/opt/k8s/kubernetes/ssl \
+--pod-infra-container-image=registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64:3.0&quot;
+EOF
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;kubeconfig&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+cat &lt;&lt; EOF | tee kubelet.config
+kind: KubeletConfiguration
+apiVersion: kubelet.config.k8s.io/v1beta1
+address: ${node_h}
+port: 10250
+readOnlyPort: 10255
+cgroupDriver: cgroupfs
+clusterDNS: [&quot;10.254.0.10&quot;]
+clusterDomain: cluster.local.
+failSwapOn: false
+authentication:
+  anonymous:
+    enabled: true
+EOF
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;kube-proxy&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+cat &lt;&lt; EOF | tee kube-proxy
+KUBE_PROXY_OPTS=&quot;--logtostderr=true \
+--v=4 \
+--hostname-override=${node_h} \
+--cluster-cidr=10.254.0.0/16 \
+--kubeconfig=/opt/k8s/kubernetes/cfg/kube-proxy.kubeconfig&quot;
+EOF
+
+cp kubelet kubelet.config kube-proxy /opt/k8s/kubernetes/cfg/
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;kubelet bootstrapping kubeconfig &#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+cd /opt/k8s/kubernetes/cfg
+
+export BOOTSTRAP_TOKEN=34aadc883a29a7fe4c2e5af40899912c
+export KUBE_APISERVER=&quot;https://192.168.255.173:6443&quot;
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x8BBE;&#x7F6E;&#x96C6;&#x7FA4;&#x53C2;&#x6570; &#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+kubectl config set-cluster kubernetes --certificate-authority=/opt/k8s/kubernetes/ssl/ca.pem --embed-certs=true --server=${KUBE_APISERVER} --kubeconfig=bootstrap.kubeconfig
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x8BBE;&#x7F6E;&#x5BA2;&#x6237;&#x7AEF;&#x8BA4;&#x8BC1;&#x53C2;&#x6570; &#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+kubectl config set-credentials kubelet-bootstrap --token=${BOOTSTRAP_TOKEN} --kubeconfig=bootstrap.kubeconfig
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x8BBE;&#x7F6E;&#x4E0A;&#x4E0B;&#x6587;&#x53C2;&#x6570; &#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+kubectl config set-context default --cluster=kubernetes --user=kubelet-bootstrap --kubeconfig=bootstrap.kubeconfig
+
+kubectl config use-context default --kubeconfig=bootstrap.kubeconfig
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;kube-proxy kubeconfig&#x6587;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+kubectl config set-cluster kubernetes --certificate-authority=/opt/k8s/kubernetes/ssl/ca.pem --embed-certs=true --server=${KUBE_APISERVER} --kubeconfig=kube-proxy.kubeconfig
+
+kubectl config set-credentials kube-proxy --client-certificate=/opt/k8s/kubernetes/ssl/kube-proxy.pem --client-key=/opt/k8s/kubernetes/ssl/kube-proxy-key.pem --embed-certs=true --kubeconfig=kube-proxy.kubeconfig 
+
+kubectl config set-context default --cluster=kubernetes --user=kube-proxy --kubeconfig=kube-proxy.kubeconfig
+
+kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig 
+cd ${workdir}/
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;kubelet.service  systemd&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+
+cat &lt;&lt; EOF | tee kubelet.service  
+[Unit]
+Description=Kubernetes Kubelet
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/opt/k8s/kubernetes/cfg/kubelet
+ExecStart=/opt/k8s/kubernetes/bin/kubelet \$KUBELET_OPTS
+Restart=on-failure
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+echo &quot;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#x521B;&#x5EFA;kube-proxy.service  systemd&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&#xFF0D;&quot;
+
+cat &lt;&lt; EOF | tee kube-proxy.service  
+[Unit]
+Description=Kubernetes Proxy
+After=network.target
+
+[Service]
+EnvironmentFile=-/opt/k8s/kubernetes/cfg/kube-proxy
+ExecStart=/opt/k8s/kubernetes/bin/kube-proxy \$KUBE_PROXY_OPTS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+EOF
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="kube-env.html" class="navigation navigation-prev " aria-label="Previous page: 5.1 环境说明">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="kube-node-cert.html" class="navigation navigation-next " aria-label="Next page: 5.2.1 生成证书文件">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5.2 node离线安装","level":"6.2","depth":1,"next":{"title":"5.2.1 生成证书文件","level":"6.2.1","depth":2,"path":"kubernetes/kube-node-cert.md","ref":"kubernetes/kube-node-cert.md","articles":[]},"previous":{"title":"5.1 环境说明","level":"6.1","depth":1,"path":"kubernetes/kube-env.md","ref":"kubernetes/kube-env.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kubernetes/kube-node.md","mtime":"2019-04-23T08:58:26.716Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-23T09:08:20.034Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
